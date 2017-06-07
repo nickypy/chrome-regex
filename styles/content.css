@@ -1,0 +1,7 @@
+.highlighted {
+    background:yellow;
+}
+
+.current {
+    background: orange;
+}

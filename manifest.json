@@ -1,0 +1,54 @@
+{
+    "manifest_version": 2,
+    "name": "RegEx Search",
+    "description": "Searches current page for RegEx matches",
+    "version": "0.1",
+    "browser_action": {
+        "default_icon": "icons/icon.png",
+        "default_popup": "popup.html",
+        "default_title": "RegEx Search"
+    },
+    "icons": {
+        "32": "icons/icon.png",
+        "64": "icons/icon.png",
+        "128": "icons/icon.png"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_end",
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "scripts/content.js"
+            ],
+            "css": [
+                "styles/content.css"
+            ],
+            "all_frames": false
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": [
+        "font/*.woff2"
+    ],
+    "commands": {
+        "toggle-feature": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+Y"
+            },
+            "description": "Send a 'toggle-feature' event to the extension"
+        },
+        "_execute_browser_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+F",
+                "mac": "MacCtrl+Shift+F"
+            }
+        }
+    }
+}
