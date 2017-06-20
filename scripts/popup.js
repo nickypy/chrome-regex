@@ -1,70 +1,45 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("send").addEventListener("click", popup);
-    document.getElementById("remove").addEventListener("click", remove);
-    document.getElementById("cycle").addEventListener("click", cycle);
-
-    chrome.commands.onCommand.addListener(function(command) {
-        console.log('onCommand event received for message: ', command);
+    document.getElementById("send").addEventListener("click", function() {
+        var regexp = document.getElementById("regex").value;
+        chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function(tabs) {
+            chrome.tabs.executeScript(tabs[0].id, {
+                file: "scripts/content.js"
+            }, function() {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    type: "highlight",
+                    regex: regexp
+                });
+            });
+        });
     });
 
-    chrome.runtime.onMessage.addListener(function (message) {
-        if (msg.from === 'content' && msg.numMatches != 0) {
-            document.getElementById('matches').innerHTML = 'Matches ' + message.numMatches;
+    document.getElementById("remove").addEventListener("click", function() {
+        chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function(tabs) {
+            chrome.tabs.executeScript(tabs[0].id, {
+                file: "scripts/content.js"
+            }, function() {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    type: "remove_highlights"
+                });
+            });
+        });
+    });
+
+    document.getElementById("settings").addEventListener("click", function() {
+        window.open('settings.html', 'some_unique_target_no_one_will_use_hopefully');
+    });
+
+    chrome.runtime.onMessage.addListener(function(message) {
+        if (message.from === 'content' && message.matches != 0) {
+            document.getElementById('matches').innerHTML = 'Matches: ' + message.matches;
         }
     });
-});
-
-function popup() {
-    var regex = document.getElementById("regex").value;
-    chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function(tabs) {
-        chrome.tabs.executeScript(tabs[0].id, {
-            file: "scripts/content.js"
-        }, function() {
-            chrome.tabs.sendMessage(tabs[0].id, {
-                type: "highlight",
-                regex: regex
-            });
-        });
-    });
-}
-
-function remove() {
-    chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function(tabs) {
-        chrome.tabs.executeScript(tabs[0].id, {
-            file: "scripts/content.js"
-        }, function() {
-            chrome.tabs.sendMessage(tabs[0].id, {
-                type: "remove_highlights"
-            });
-        });
-    });
-}
-
-function cycle() {
-    var regex = document.getElementById("regex").value;
-    chrome.tabs.query({
-        active: true,
-        currentWindow: true
-    }, function(tabs) {
-        chrome.tabs.executeScript(tabs[0].id, {
-            file: "scripts/content.js"
-        }, function() {
-            chrome.tabs.sendMessage(tabs[0].id, {
-                type: "cycle",
-                regex: regex
-            });
-        });
-    });
-}
-
-$('#text').on('input', function() {
-    document.getElementById("send").click();
 });
 
 $(document).keypress(function(e) {

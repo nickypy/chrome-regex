@@ -32,7 +32,8 @@
         "tabs",
         "activeTab",
         "http://*/*",
-        "https://*/*"
+        "https://*/*",
+        "storage"
     ],
     "web_accessible_resources": [
         "font/*.woff2"

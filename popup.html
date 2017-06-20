@@ -10,48 +10,28 @@
     - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
     -->
     <script src="scripts/jquery-3.2.1.min.js"></script>
-    <script src="regex-colorizer/regex-colorizer.js"></script>
     <script src="scripts/popup.js"></script>
-    <link id="regexpal-ss" href="regex-colorizer/themes/regexpal.css" rel="stylesheet" title="RegexPal">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-    <style type="text/css">
-    @font-face {
-        font-family: 'Source Code Pro';
-        font-style: normal;
-        font-weight: 400;
-        src: url(fonts/Source Code Pro.woff2) format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-    }
-
-    body {
-        font-family: 'Source Code Pro';
-    }
-
-    input {
-        font-family: 'Source Code Pro';
-    }
-
-    input#regex {
-        font-family: 'Source Code Pro';
-        font-size: 14px;
-        width: 360px;
-    }
-
-    p#matches {
-        font-family: 'Source Code Pro';
-        font-size: 10px;
-    }
-    </style>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/popup.css">
 </head>
 
 <body>
-    <input type="text" id="regex" autocomplete="off" autofocus="true"><br><br>
-    <center>
-        <input type="submit" id="send"  value="RegEx!">
-        <input type="submit" id="remove" value="Clear">
-        <input type="submit" id="cycle" value="Next">
-        <p id="matches">No matches found</p>
-    </center>
+    <div class="container">
+        <div class="embed-submit-field">
+            <input type="text" id="regex" autocomplete="off" autofocus="true">
+            <button class="menubutton" id="send">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+            <button class="menubutton" id="remove">
+                <i class="fa fa-eraser" aria-hidden="true"></i>
+            </button>
+            <button class="menubutton" id="settings">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+            </button>
+            <p id="matches">No matches found</p>
+        </div>
+    </div>
 </body>
 
 </html>
