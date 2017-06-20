@@ -1,10 +1,13 @@
-# Regex Search Chrome Extension
+# Regex Search Chrome Extension 🔍
 
-# Installation Instructions
+# Installation Instructions 👾
 * Go to chrome://extensions
 * Check 'Developer mode'
 * Click 'Load unpacked extension'
 
-# Usage
+# Usage 🔥
 * Use `CTRL+SHIFT+F` to activate on Windows and Linux
 * On macOS, use `CONTROL+SHIFT+F`, not `CMD`
+
+# Screenshots
+![Pizza](screenshot_pizza.png "screenshot pizza")
