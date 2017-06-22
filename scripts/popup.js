@@ -1,4 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("keypress", function(e) {
+        if (e.which == 13) { // ENTER key
+            document.getElementById("send").click();
+        }
+    });
+
+
     document.getElementById("send").addEventListener("click", function() {
         var regexp = document.getElementById("regex").value;
         chrome.tabs.query({
@@ -40,10 +47,4 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('matches').innerHTML = 'Matches: ' + message.matches;
         }
     });
-});
-
-$(document).keypress(function(e) {
-    if (e.which == 13) { // ENTER key
-        document.getElementById("send").click();
-    }
 });
