@@ -1,24 +1,17 @@
 
 chrome.runtime.onMessage.addListener(function (message) {
     if (message.type === 'highlight' && message.regex != '') {
-        console.log(message.regex);
-        let num = highlightWord(document.body, message.regex);
+        var re = new RegExp(message.regex, 'g'),
+            context = document.querySelector("html"),
+            instance = new Mark(context);
+        instance.unmark();
+        instance.markRegExp(re);
         chrome.runtime.sendMessage({
-            from:    'content',
-            matches: num
+            from:    'content'
         });
-    } else if (message.type === 'remove_highlights') {
-        removeHighlights(document.body);
+    } else if (message.type === 'remove_highlights' || message.regex === '') {
+        var context = document.querySelector("html"),
+            instance = new Mark(context);
+        instance.unmark();
     }
 });
-
-function highlightWord(root, word) {
-    var re = new RegExp(word, 'g');
-    var numMatches = 0;
-
-
-}
-
-function removeHighlights(root) {
-
-}

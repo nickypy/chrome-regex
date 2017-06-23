@@ -3,6 +3,7 @@
     "name": "RegEx Search",
     "description": "Searches current page for RegEx matches",
     "version": "0.1",
+    "options_page": "settings.html",
     "browser_action": {
         "default_icon": "icons/icon.png",
         "default_popup": "popup.html",
@@ -15,15 +16,16 @@
     },
     "content_scripts": [
         {
-            "run_at": "document_idle",
+            "run_at": "document_end",
             "matches": [
                 "<all_urls>"
             ],
-            "js": [
-                "scripts/content.js"
-            ],
             "css": [
                 "styles/content.css"
+            ],
+            "js": [
+                "scripts/mark.min.js",
+                "scripts/content.js"
             ],
             "all_frames": false
         }

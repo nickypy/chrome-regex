@@ -8,6 +8,7 @@
 # Usage 🔥
 * Use `CTRL+SHIFT+F` to activate on Windows and Linux
 * On macOS, use `CONTROL+SHIFT+F`, not `CMD`
+* Supports JavaScript RegExp notation
 
-# Screenshots
+# Examples
 ![Pizza](screenshot_pizza.png "screenshot pizza")

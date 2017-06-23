@@ -1,7 +1,4 @@
-.highlighted {
-    background:yellow;
-}
-
-.current {
-    background: orange;
+mark {
+    background: pink;
+    color: white;
 }

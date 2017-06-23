@@ -11,16 +11,11 @@ body {
     font-size: 16px;
 }
 
-input {
-    font-family: 'Source Code Pro';
-}
-
 input#regex {
     font-family: 'Source Code Pro';
+    font-weight: bold;
     font-size: 14px;
     width: 360px;
-    border-radius: 4px;
-    border: solid #555555 2px;
 }
 
 input:focus,
@@ -41,8 +36,7 @@ p#matches {
     display: inline-block;
     transition-duration: 0.4s;
     font-size: 20px;
-    width: 25px;
-    height: 25px;
+
 }
 
 .menubutton:hover {

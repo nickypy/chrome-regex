@@ -11,21 +11,23 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="embed-submit-field">
-            <input type="text" id="regex" autocomplete="off" autofocus="true">
-            <button class="menubutton" id="send">
-                <i class="fa fa-search" aria-hidden="true"></i>
-            </button>
-            <button class="menubutton" id="remove">
-                <i class="fa fa-eraser" aria-hidden="true"></i>
-            </button>
-            <button class="menubutton" id="settings">
-                <i class="fa fa-cog" aria-hidden="true"></i>
-            </button>
-            <p id="matches">No matches found</p>
-        </div>
-    </div>
+    <table>
+        <tr>
+            <th>
+                <input type="text" name="text" id="regex" autocomplete="off" autofocus="true">
+            </th>
+            <th>
+                <button class="menubutton" id="send">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </th>
+            <th>
+                <button class="menubutton" id="remove">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                </button>
+            </th>
+        </tr>
+    </table>
 </body>
 
 </html>

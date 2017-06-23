@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-
     document.getElementById("send").addEventListener("click", function() {
         var regexp = document.getElementById("regex").value;
         chrome.tabs.query({
@@ -36,10 +35,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
             });
         });
-    });
-
-    document.getElementById("settings").addEventListener("click", function() {
-        window.open('settings.html', 'some_unique_target_no_one_will_use_hopefully');
     });
 
     chrome.runtime.onMessage.addListener(function(message) {
