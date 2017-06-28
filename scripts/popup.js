@@ -22,6 +22,23 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
+    document.getElementById("next").addEventListener("click", function() {
+        var regexp = document.getElementById("regex").value;
+        chrome.tabs.query({
+            active: true,
+            currentWindow: true
+        }, function(tabs) {
+            chrome.tabs.executeScript(tabs[0].id, {
+                file: "scripts/content.js"
+            }, function() {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    type: "next",
+                    regex: regexp
+                });
+            });
+        });
+    });
+
     document.getElementById("remove").addEventListener("click", function() {
         chrome.tabs.query({
             active: true,

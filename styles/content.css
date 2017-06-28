@@ -1,4 +1,9 @@
 mark {
-    background: pink;
+    background: yellow;
+    color: black;
+}
+
+mark.current {
+    background: orange;
     color: white;
 }
