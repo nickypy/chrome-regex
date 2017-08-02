@@ -38,7 +38,8 @@
         "storage"
     ],
     "web_accessible_resources": [
-        "font/*.woff2"
+        "font/*.woff2",
+        "styles/content.css"
     ],
     "commands": {
         "toggle-feature": {
