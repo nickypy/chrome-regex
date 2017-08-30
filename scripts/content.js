@@ -1,14 +1,17 @@
-// import mark.js
 document.onload = function() {
-    var script = document.createElement('script');
-    script.src = 'scripts/mark.min.js';
+    var markjs = document.createElement('script');
+    markjs.src = 'mark.min.js';
+
+    var jquery = document.createElement('script');
+    jquery.src = 'jquery-3.2.1.min.js';
 
     var style = document.createElement('link');
     style.rel = "stylesheet";
     style.href = '../styles/content.css';
 
-    document.head.appendChild(script);
-    document.head.appendChild(styles);
+    document.body.appendChild(markjs);
+    document.body.appendChild(styles);
+    document.body.appendChild(jquery);
 }
 
 var context = document.querySelector("body"),
@@ -32,21 +35,13 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
             results[currentIndex].classList.remove('current');
             currentIndex += 1;
             currentIndex = currentIndex % (results.length - 1);
+            console.log(currentIndex);
         }
         jumpTo();
     }
 });
 
-function jumpTo() {
-    if (results.length) {
-        var position,
-            current = results[currentIndex];
-        current.classList.add('current');
-        position = current.offsetTop;
-        console.log(position);
-        window.scrollTo(0, position);
-    }
-}
+
 
 
 

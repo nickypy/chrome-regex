@@ -10,5 +10,6 @@
 * On macOS, use `CONTROL+SHIFT+F`, not `CMD`
 * Supports JavaScript RegExp notation
 
-# Examples
-![Pizza](screenshot_pizza.png "screenshot pizza")
+# Attribution
+* [mark.js](https://github.com/julmot/mark.js/)
+* [Source Code Pro](https://github.com/adobe-fonts/source-code-pro)
